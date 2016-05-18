@@ -7,10 +7,13 @@
   <script src="js/controller.js"></script>
   <script src="js/directive.js"></script>
   <script src="js/service.js"></script>
+
+
 </head>
 
 <body ng-app="todo">
-    <form name="todoForm" ng-controller="todoCtrl">
+  <div ng-controller="todoCtrl">
+    <form name="todoForm" >
       task: <input name="newTodo" ng-model="newTodo" placeholder="What do you want to do next?" autofocus="aotofocus" required>
       <span ng-show="todoForm.newTodo.$touched && todoForm.newTodo.$invalid">请填写任务</span>
       <br>
@@ -18,11 +21,18 @@
       <button name="addTodo" ng-click="addTodo()">addTask</button>
     </form>
 
-    <ul id="todolist">
-      <li ng-repeat="todo in todos">
-        <todo-list></todolist>
-      </li>
-    </ul>
-
+    <table ng-show="todos.length">
+      <tr>
+        <th>Title</th><th>Deadline</th>
+      </tr>
+      <tr ng-repeat="todo in todos">
+        <td ng-show="todo.overdate == 'falth'" style="color:black">{{todo.title}}</td><td ng-show="todo.overdate == 'falth'" style="color:black">{{todo.ddl}}</td>
+        <td ng-show="todo.overdate == 'true'" style="color:red">{{todo.title}}</td><td ng-show="todo.overdate == 'true'" style="color:red">{{todo.ddl}}</td>
+      </tr>
+    </table>
+    <p>Today:<span>{{today}}</span></p>
+    <p ng-show="todos.length">Total: {{todos.length}} items left</p>
+    <p>Overdated: {{overdated}} items</p>
+</div>
 </body>
 </html>
