@@ -26,6 +26,7 @@ todo.controller('todoCtrl',['$scope','storage',function($scope,storage){
     var setTodos = function (){
       var todos = storage.getTodo();
       $scope.todos = todos;
+      if(!todos) return;
       $scope.overdated = 0;
       for (var i = 0; i < todos.length; i++) {
         if (todos[i].overdate == 'true') {
