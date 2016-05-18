@@ -1,0 +1,28 @@
+
+<!DOCTYPE html>
+<head>
+  <title>todoList</title>
+  <meta charset='utf-8'>
+  <script src="node_modules/angular/angular.js"></script>
+  <script src="js/controller.js"></script>
+  <script src="js/directive.js"></script>
+  <script src="js/service.js"></script>
+</head>
+
+<body ng-app="todo">
+    <form name="todoForm" ng-controller="todoCtrl">
+      task: <input name="newTodo" ng-model="newTodo" placeholder="What do you want to do next?" autofocus="aotofocus" required>
+      <span ng-show="todoForm.newTodo.$touched && todoForm.newTodo.$invalid">请填写任务</span>
+      <br>
+      ddl: <input type="date" ng-model="newDate"><!--input type="time" ng-model="newTime"-->
+      <button name="addTodo" ng-click="addTodo()">addTask</button>
+    </form>
+
+    <ul id="todolist">
+      <li ng-repeat="todo in todos">
+        <todo-list></todolist>
+      </li>
+    </ul>
+
+</body>
+</html>

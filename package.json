@@ -1,0 +1,14 @@
+{
+  "name": "todo_angular",
+  "version": "1.0.0",
+  "description": "**开发一个 Web 版的 todo list",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.5.5"
+  }
+}
