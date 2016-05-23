@@ -1,8 +1,12 @@
 var todo = angular.module('todo', []);
 todo.controller('todoCtrl',['$scope','storage',function($scope,storage){
     $scope.addTodo = function () {
+      console.log($scope.newDate);
+      $scope.newDate.toLocaleString();
+      console.log(JSON.stringify($scope.newDate));
       var oldTask = JSON.parse(localStorage.getItem('task')) || [];
       var date = JSON.stringify($scope.newDate).slice(1,11);
+      console.log(date);
       var overdated = 'falth';
       if (!valid(date)){
         overdated = 'true';

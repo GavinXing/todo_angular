@@ -1,6 +1,12 @@
-// todo.directive('todoList',function ($scope) {
-//     return {
-//       restrict: 'a',
-//       template: '<p>{{todo.title}}</p><p>{{todo.ddl}}'
-//     }
-//   });
+todo.directive('todoList',function ($scope) {
+    return {
+      restrict: 'a',
+      template: '{{overdate}}  {{title}}  {{ddl}}',
+      scope: {
+        'overdate': '@' ,
+        'title': '@' ,
+        'ddl': '@'
+      } ,
+      replace: true
+    }
+  });
